@@ -2,7 +2,8 @@
 <ul>
   <% @tasks.each do |task| %>
     <% checkbox = task.completed ? "☑" : "☐" %>
-    <li><%= checkbox %> <%= link_to task.title, task_path(task) %></li>
+    <li><%= checkbox %> <%= link_to task.title, task_path(task) %>
+    <%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Delete #{task.title}" }%></li>
   <% end %>
 </ul>
 <%= link_to "Add a new task", tasks_new_path %>
